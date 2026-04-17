@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🔍 NeuralEngine – Lost Item Finder
 
-First, run the development server:
+A real-time AI-powered web application that helps detect and locate everyday lost items (like keys, phone, wallet, etc.) using a webcam. It uses a pre-trained YOLO model for object detection and a React/Next.js frontend for live visualization.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+* 🎥 Real-time webcam object detection
+* 🧠 YOLOv8 pre-trained model integration
+* 📦 Detects common objects (phone, keys, wallet, etc.)
+* 🌐 Modern web interface (React / Next.js)
+* ⚡ Fast backend with FastAPI
+* 🔄 Live WebSocket frame streaming
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* Python 
+* FastAPI
+* OpenCV
+* Ultralytics YOLOv8
+* NumPy
+* WebSockets
+
+### Frontend
+
+* React / Next.js
+* JavaScript (ES6+)
+* HTML5 Webcam API
+* Tailwind CSS (optional)
+
+---
+
+## 🧠 How It Works
+
+1. Webcam captures live video
+2. Frames are sent to backend via WebSocket
+3. YOLO model processes each frame
+4. Objects are detected and labeled
+5. Processed frames are sent back
+6. UI displays real-time detection
+
+---
+
+## 🏗️ Project Architecture
+
+```
+Webcam (Frontend)
+      ↓
+React / Next.js UI
+      ↓ (WebSocket)
+FastAPI Backend
+      ↓
+YOLOv8 Model
+      ↓
+Processed Frames + Labels
+      ↓
+Frontend Display
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Installation & Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone the repository
 
-## Learn More
+```bash
+git clone https://github.com/FaizaNaseem34/NeuralEngine-Lost-item-Finder.git
+cd NeuralEngine-Lost-item-Finder
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Backend Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cd backend
+pip install -r requirements.txt
+```
 
-## Deploy on Vercel
+Run server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+uvicorn main:app --reload
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### 3. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## 📦 Requirements
+
+Create `requirements.txt`:
+
+```
+fastapi
+uvicorn
+opencv-python
+numpy
+ultralytics
+python-multipart
+```
+
+---
+
+## 📸 Use Cases
+
+* Finding lost keys 🔑
+* Detecting phone on desk 📱
+* Locating wallet 💼
+* Smart object tracking system
+
+---
+
+## 🔮 Future Improvements
+
+* Custom-trained dataset (keys, remotes, etc.)
+* Mobile camera support
+* Alert notifications when item is found
+* Cloud deployment
+* Improved tracking (DeepSORT / ByteTrack)
+
+---
+
+## 👩‍💻 Author
+
+**Faiza Naseem**
+
+GitHub:
+👉 [https://github.com/FaizaNaseem34](https://github.com/FaizaNaseem34)
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
